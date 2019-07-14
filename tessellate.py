@@ -2,11 +2,13 @@ import board
 import piece
 
 brd = board.Board()
-pca = piece.Piece("A")
+pcs = (piece.Piece("A"), piece.Piece("B"), piece.Piece("C"))
 
-if (brd.fitpiece (pca)):
-    brd.addpiece (pca)
-    brd.paint()
-    print ("fitted")
-else:
-    print ("didn't fit at" , pca.focus.toString())
+for pc in pcs:
+
+    if (brd.fitpiece (pc)):
+        brd.addpiece (pc)
+        brd.paint()
+        print ("fitted", pc)
+    else:
+        print ("didn't fit", pc)

@@ -25,6 +25,26 @@ class Board:
 
     # TEST FIT
     def fitpiece (self, pc):
+        fitted = False
+        for x in range(self.width - 1):
+            for y in range (self.height - 1):
+                pc.focus.x = x
+                pc.focus.y = y
+                print("checking", x, y)
+                if self.isfitting (pc):
+                    fitted = True
+                    print ("found a place", x, y)
+                if fitted:
+                    break
+            if fitted:
+                break
+        if fitted:
+            return True
+        else:
+            return False
+
+
+    def isfitting (self, pc):
         if not self.squarefree (pc.focus):
             return False
         for coord in pc.figure:
