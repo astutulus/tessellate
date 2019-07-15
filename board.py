@@ -26,25 +26,30 @@ class Board:
     # TEST FIT
     def fitpiece (self, pc):
         fitted = False
-        for x in range(self.width - 1):
-            for y in range (self.height - 1):
+        for x in range(self.width - 1):         # LOOP 1
+
+            for y in range (self.height - 1):   # LOOP 2
+
                 pc.focus.x = x
                 pc.focus.y = y
-                print("checking", x, y)
-                if self.isfitting (pc):
-                    fitted = True
-                    print ("found a place", x, y)
+                for angle in [0, 90, 180, 270]: # LOOP 3
+                    if self.isfitting (pc, angle):
+                        fitted = True
+                        break           # FROM LOOP 3
+                    pc.rotate()
                 if fitted:
-                    break
+                    break               # FROM LOOP 2
+
             if fitted:
-                break
+                break                   # FROM LOOP 1
+        # RETURN A VALUE:
         if fitted:
             return True
         else:
             return False
 
 
-    def isfitting (self, pc):
+    def isfitting (self, pc, angle):
         if not self.squarefree (pc.focus):
             return False
         for coord in pc.figure:

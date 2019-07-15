@@ -2,13 +2,19 @@ import board
 import piece
 
 brd = board.Board()
-pcs = (piece.Piece("A"), piece.Piece("B"), piece.Piece("C"))
 
-for pc in pcs:
+pcs = []
 
+for label in ['A', 'B', 'C', 'D', 'E', 'F']:
+    pcs.append(piece.Piece(label))
+
+
+for pc in pcs: # enumerate(pcs):
     if (brd.fitpiece (pc)):
         brd.addpiece (pc)
-        brd.paint()
         print ("fitted", pc)
     else:
         print ("didn't fit", pc)
+
+print ("result:")
+brd.paint()
