@@ -1,13 +1,15 @@
 from coord import Coord
+import piece
 
 class Board:
 
-    board = []
+    size = 4
 
-    def __init__(self, width = 8, height = 8):
-        list.__init__([])   # is this essential boilerplate?
-        self.width = width
-        self.height = height
+
+    def __init__(self):
+
+        self.width = self.size
+        self.height = self.size
         self.board = self.emptyboard(self.width, self.height)
 
     # "DATABASE" / UPDATE
@@ -32,22 +34,21 @@ class Board:
 
                 pc.focus.x = x
                 pc.focus.y = y
+                print ('x', x , ', ' , 'y', y)
                 for angle in [0, 90, 180, 270]: # LOOP 3
                     if self.isfitting (pc, angle):
                         fitted = True
                         break           # FROM LOOP 3
+                    print ('Rotating' , pc.name , 'to' , angle)
                     pc.rotate()
+
                 if fitted:
                     break               # FROM LOOP 2
 
             if fitted:
                 break                   # FROM LOOP 1
         # RETURN A VALUE:
-        if fitted:
-            return True
-        else:
-            return False
-
+        return fitted
 
     def isfitting (self, pc, angle):
         if not self.squarefree (pc.focus):
@@ -58,7 +59,6 @@ class Board:
                 return False
         return True
 
-
     def squarefree (self, coord):
         if coord.x < 0 or coord.x > self.width:
             return False
@@ -68,7 +68,6 @@ class Board:
             return False
         else:
             return True
-
 
 
     # "GRAPHICS" / CANVAS
