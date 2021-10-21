@@ -1,2 +1,2 @@
 language = "python3"
-run = "tessellate.py"
+run = "python tessellate.py"
