@@ -1,9 +1,9 @@
 # tessellate
 
-TL;DR
+### TL;DR
 Fits pieces on grid, like Tetris.
 
-TILING PROGRAM
+### TILING PROGRAM
 Packs polyominos onto a given grid.
 
  - Grid is currently square like a chess board.
