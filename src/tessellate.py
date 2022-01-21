@@ -1,13 +1,12 @@
 
-import situation
+import board
 import solve
 
-pieceslist = []
 identifier = 0
 
 pieceslist = solve.tree_reccursive(pieceslist, identifier)
 
-board = situation.Board()       # reconstruct board
+board = board.Board()       # reconstruct board
 print()
 for pc in pieceslist:
     board.addpiece(pc)

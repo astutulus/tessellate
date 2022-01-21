@@ -1,10 +1,10 @@
 import string # for ascii encoding
-import situation
+import board
 import pieces
 
 def tree_reccursive (pcs, id):
 
-    brd = situation.Board()       # reconstruct board
+    brd = board.Board()       # reconstruct board
     for pc in pcs:
         brd.addpiece(pc)
 

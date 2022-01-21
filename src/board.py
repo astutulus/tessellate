@@ -10,6 +10,8 @@ class Board:
         self.width = self.size
         self.height = self.size
         self.board = self.emptyboard(self.width, self.height)
+        self.pieceslist = []
+
 
     # "INITIALISE" / SETUP
     def emptyboard (self, width, height):
